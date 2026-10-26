@@ -3,7 +3,7 @@
 A fan-made photo-based desktop companion and an HTML/CSS interface study.
 
 - **Website:** https://il2527.github.io/desktop-beomgyu/
-- **Complete Mac download:** https://github.com/il2527/desktop-beomgyu/releases/latest/download/Desktop-Beomgyu.zip
+- **Complete Mac download:** https://github.com/il2527/desktop-beomgyu/raw/refs/heads/main/Desktop-Beomgyu.zip
 - **Existing public preview:** https://little-companion-studio.cheerylarch3.chatgpt.site/
 
 ## Assignment document
@@ -39,3 +39,5 @@ The concept, reference photos, and direction came from the student. Codex assist
 The approved hug uses 20 original GIF frames with background masks; the face was not regenerated. Other character assets include AI-assisted photo edits. Reference media belong to their respective owners. This is an unofficial fan project.
 
 Original hug reference: https://media1.tenor.com/m/5-2hUKXUZUwAAAAd/beomgyu-hug-beomgyu-sweet.gif
+
+- [Download the assignment document](Assignment.docx)
