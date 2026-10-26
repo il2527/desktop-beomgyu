@@ -1,0 +1,79 @@
+Designing the Structure and Style of an Interactive Experience
+Desktop Idol: Desktop Beomgyu
+Submitted by: Desktop Idol — Individual project
+
+PROJECT LINKS
+Website: https://little-companion-studio.cheerylarch3.chatgpt.site/
+HTML/CSS/JavaScript source: https://little-companion-studio.cheerylarch3.chatgpt.site/source.zip
+Complete Mac app download: https://little-companion-studio.cheerylarch3.chatgpt.site/downloads/Desktop-Beomgyu.zip
+
+1. IDEA AND DESIGN INTENTIONS
+
+My project is Desktop Beomgyu, a fan-made desktop companion inspired by Beomgyu from TXT and Desktop Goose. I wanted a tiny photo-based character that could keep someone company, walk or run around their screen, celebrate, and offer a comforting hug. I also imagined a helpful interaction where he carries a file to the Trash and offers Undo.
+
+For this HTML/CSS activity, I developed a website interface that introduces the companion and lets a visitor preview his modes. The website also offers a complete download of the native Mac app. The browser preview and the desktop app have different roles: the webpage demonstrates the visual experience, while the native app can appear on the actual desktop and handle confirmed Trash actions. The webpage does not access or delete a visitor’s files.
+
+I wanted the interface to feel calm, personal, and easy to understand. Soft green and warm white create a gentle background. The large “Desktop Beomgyu” title establishes the main visual hierarchy. The character preview is the focus, with settings grouped beside it on wider screens and underneath it on smaller screens.
+
+2. LAYOUT AND USER EXPERIENCE
+
+The page is organized into these areas:
+• Header: project identity, navigation, and a Download link.
+• Introduction: the project title and a short explanation.
+• Character preview: a desktop-like space showing the selected character mode.
+• Settings: Stay, Walk, Run, Celebrate, and Hug, followed by Tiny, Small, and Large size choices.
+• Trash-helper explanation: a storyboard explaining confirmation, delivery, celebration, and Undo.
+• Download section: one button for the complete app, character assets, and a quick-start guide.
+• Footer: a link to the source code and design-process page.
+
+The intended flow is to understand the idea, try a mode, choose a size, and download the companion. Hug plays directly in the preview rather than opening a separate pop-up. Its message is: “Feel upset? Feel tired? Do not worry I will always be on your side”.
+
+I simplified the interface through revision. I removed the random file-icon play feature because I no longer wanted it. I also asked for one combined download instead of separate app and asset buttons, so visitors would not have to guess which files they needed.
+
+3. HOW I USED AI
+
+I used ChatGPT/Codex as a design and implementation partner. I supplied the initial concept, reference photos, GIF, and feedback. AI helped translate the concept into code, prepare images, propose a layout, and implement changes. The webpage markup, CSS, and JavaScript were AI-assisted rather than written entirely by me.
+
+Examples of my prompts and decisions:
+
+• I asked for a real-photo Beomgyu companion rather than an illustrated character. AI suggested several possible features; I selected the photo-based direction and provided the reference images.
+
+• The first walking attempt looked like a crab because front-facing legs swung sideways. I challenged the result and asked for his lower body to face the direction of travel. AI changed the animation to side-facing poses.
+
+• I requested random directions, circles, faster walking, running, and automatic running during Trash delivery. These requests shaped the behavior of the native app.
+
+• I asked for a larger “Desktop Beomgyu” title and a visible interface built with HTML and CSS. AI generated the preview-and-settings layout. I kept that structure and refined its controls and download area.
+
+• I rejected a generated hug because the face no longer looked like Beomgyu. I insisted that his real face remain unchanged, that the background be removed, and that the hug still move. The accepted approach used background masks on all 20 original GIF frames instead of redrawing his face. This was an important example of testing AI output against my original intention.
+
+• I asked to move Hug into the same preview as Stay and Celebrate. I also removed an unwanted feature and combined the download buttons. These were my decisions about clarity and user experience, not just automatic acceptance of AI suggestions.
+
+4. HTML AND CSS STRUCTURE
+
+HTML gives the interface meaning and organization. The page uses header, nav, main, section, aside, article, and footer elements. Fieldset and legend group related choices. Labels connect the visible controls to their inputs. Details and summary provide an expandable explanation of the Trash-helper idea.
+
+CSS controls the appearance and layout. CSS Grid arranges the preview and settings into two columns on wider screens. Flexbox aligns navigation, smaller control groups, and other rows. Media queries change the layout to one column on narrow screens. Shared color variables, consistent spacing, borders, and rounded corners make the cards feel connected.
+
+The box model matters because padding, borders, and width all affect how much space an element occupies. The stylesheet uses box-sizing: border-box so padding and borders are included in an element’s stated size. Larger headings, smaller labels, and muted supporting text establish a clear hierarchy.
+
+This version goes beyond the minimum assignment by adding JavaScript for movement, frame timing, and mode changes. The structural foundation is still semantic HTML with CSS styling. Interactivity could be described and presented in the layout even without JavaScript.
+
+5. INTERACTIVE ELEMENTS AND TESTING
+
+Movement choices are real radio inputs. Choosing one mode replaces the previous mode. Size controls scale the preview. Hug uses the original transparent frames and timing. Movement and step frames share a timing loop so his legs pause when he stops travelling.
+
+The Trash helper on the website is an interaction storyboard. Its intended behavior is: select or drop a file, confirm moving it to Trash, watch him run and celebrate, and use Undo if needed. Actual file handling belongs to the native app, not this browser page.
+
+With AI assistance, the page was checked in a browser at a narrow viewport, mode changes were tested, local links were checked, and the download archives were inspected. The Mac app package was checked to confirm that its executable and all 20 hug frames were included. The downloadable build is for Apple silicon Macs running macOS 26 or later; it is a local prototype and is not notarized.
+
+6. WHAT I LEARNED
+
+I learned that HTML structures the page, while CSS controls its layout and style. In this project, HTML sections organize the preview, settings, and download area. CSS Grid places the preview beside the settings on a wide screen, and a media query stacks them on a smaller screen. This helped me understand why the same content can have different layouts without changing its HTML structure.
+
+The project also showed why AI output needs human review. An animation can technically work but still communicate the wrong movement, and an image can look polished but fail to preserve the person’s likeness. My feedback changed both the visual result and the implementation method.
+
+MEDIA AND ATTRIBUTION
+
+This is a fan-made, unofficial project. Reference photos were supplied during the design process. The hug animation comes from the user-provided Tenor GIF:
+https://media1.tenor.com/m/5-2hUKXUZUwAAAAd/beomgyu-hug-beomgyu-sweet.gif
+Standing, walking, running, and celebration assets include AI-assisted photo edits. The approved hug retains the original GIF frames with background masking. Media rights belong to their respective owners.
