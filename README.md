@@ -14,7 +14,7 @@ A fan-made photo-based desktop companion and an HTML/CSS interface study.
 
 ## Use the desktop character
 
-Download the ZIP from Releases, unzip it, and open **Beomgyu Desktop.app**. Right-click him for walking, running, celebration, **Need a hug?**, size, focus, and confirmed Trash actions with Undo. All images are bundled inside the app; no separate asset installation is needed.
+Download the complete ZIP using the link above, unzip it, and open **Beomgyu Desktop.app**. Right-click him for walking, running, celebration, **Need a hug?**, size, focus, and confirmed Trash actions with Undo. All images are bundled inside the app; no separate asset installation is needed.
 
 The downloadable prototype requires an Apple silicon Mac and macOS 26 or later. It is ad-hoc signed and not notarized.
 
@@ -41,3 +41,7 @@ The approved hug uses 20 original GIF frames with background masks; the face was
 Original hug reference: https://media1.tenor.com/m/5-2hUKXUZUwAAAAd/beomgyu-hug-beomgyu-sweet.gif
 
 - [Download the assignment document](Assignment.docx)
+
+## Opening on macOS
+
+This prototype is ad-hoc signed and has not been notarized by Apple. If macOS blocks it, only if you trust this project copy: click Done, open System Settings → Privacy & Security, find the blocked Beomgyu Desktop message, click Open Anyway, and confirm. Keep macOS security protections enabled. Apple instructions: https://support.apple.com/en-us/102445
