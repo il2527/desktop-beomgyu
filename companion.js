@@ -22,7 +22,14 @@
   hugIndex=(hugIndex+1)%hugFrames.length;
   if(!reduced.matches)hugTimer=setTimeout(hugStep,delay);
  }
+ function updatePace(){
+  const value=Number($('#pace').value);
+  $('#pace-value').textContent=value+'%';
+  $('#pace').setAttribute('aria-valuetext',value+' percent of usual walking or running speed');
+ }
+ $('#pace').addEventListener('input',updatePace);
  function modeChanged(){
+  updatePace();
   reset();clearTimeout(hugTimer);hugIndex=0;
   const quiet=$('#quiet').checked;
   document.body.classList.toggle('quiet-comfort',quiet);
@@ -74,7 +81,7 @@
    const desired=Math.atan2(vy,vx);
    const delta=Math.atan2(Math.sin(desired-heading),Math.cos(desired-heading));
    heading+=delta*Math.min(1,dt*4);
-   speed=Math.min(speed+dt*180,(run?110:48)*($('#quiet').checked?.55:1));
+   speed=Math.min(speed+dt*180,(run?110:48)*(Number($('#pace').value)/100)*($('#quiet').checked?.55:1));
    const nx=Math.min(maxX,Math.max(minX,x+Math.cos(heading)*speed*dt));
    const ny=Math.min(maxY,Math.max(minY,y+Math.sin(heading)*speed*dt));
    moved=Math.hypot(nx-x,ny-y);

@@ -57,3 +57,5 @@ The website now uses SVG clips of the existing photographs with separate arm and
 The shoulder repair uses photo-textured triangular strips with shared vertices and a fixed attachment edge. Upper arms and forearms use separate joint transforms; torso clips exclude moving sleeves. The four quarter-stride poses were inspected for both gaits before publication.
 
 Arm depth follows anatomy: the far arm stays behind the torso throughout the stride, while the near arm stays in front. Swinging or turning does not exchange these layers.
+
+The Movement speed range slider adds a continuous input (50–180%). Its input event updates the visible percentage and walking/running speed immediately. Movement mode sets the base speed, the slider scales it, and Quiet comfort multiplies it by 0.55. Reset returns the slider to 100%.
