@@ -42,6 +42,18 @@
  document.querySelector('form').addEventListener('reset',()=>setTimeout(modeChanged,0));
  reduced.addEventListener('change',modeChanged);
  modeChanged();
+ // Move the receding arm behind the torso and the approaching arm in front.
+ const armLayers={};
+ function layerArms(gait,exchange){
+  const half=exchange>.5;
+  if(armLayers[gait]===half)return;
+  armLayers[gait]=half;
+  const body=$('.'+gait+'-body'),head=$('.'+gait+'-head'),parent=body.parentNode;
+  const first=$('.'+gait+'-front-arm'),second=$('.'+gait+(gait==='run'?'-back-arm':'-rear-arm'));
+  parent.insertBefore(half?first:second,parent.firstElementChild);
+  parent.appendChild(half?second:first);
+  parent.appendChild(head);
+ }
  function tick(now){
   const dt=Math.min((now-(last||now))/1000,.04);last=now;
   const minX=32,minY=12;
@@ -71,14 +83,16 @@
   const moving=moved>.01;document.body.classList.toggle('is-moving',moving);document.body.classList.toggle('running',run);
   if(moving&&!run){
    const exchange=(1-Math.cos(distance/38*Math.PI*2))/2;
-   const poses=[[48*exchange,245,280],[-48*exchange,230,280],[-40*(1-exchange),275,150],[40*(1-exchange),190,150]];
+   const poses=[[48*exchange,245,280],[-48*exchange,230,280],[-30*(1-exchange),275,150],[30*(1-exchange),195,145]];
+   layerArms('walk',exchange);
    walkParts.forEach((part,i)=>part.setAttribute('transform',`rotate(${poses[i].join(' ')})`));
   }
   // One full stride per 46 pixels. Opposite arms follow opposite legs.
   // These transforms move clipped original photo pixels, including an untouched head.
   if(run&&moving){
    const exchange=(1-Math.cos(distance/46*Math.PI*2))/2;
-   const poses=[[-65*exchange,590,700],[90*exchange,650,740],[-95*(1-exchange),420,330],[75*(1-exchange),790,330]];
+   const poses=[[-65*exchange,590,700],[90*exchange,650,740],[-70*(1-exchange),420,330],[55*(1-exchange),790,330]];
+   layerArms('run',exchange);
    runParts.forEach((part,i)=>part.setAttribute('transform',`rotate(${poses[i].join(' ')})`));
   }
   // The run photo faces left; the walk atlas faces right.
