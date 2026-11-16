@@ -44,16 +44,16 @@
  document.querySelector('form').addEventListener('reset',()=>setTimeout(modeChanged,0));
  reduced.addEventListener('change',modeChanged);
  modeChanged();
- // Move the receding arm behind the torso and the approaching arm in front.
- const armLayers={};
- function layerArms(gait,exchange){
-  const half=exchange>.5;
-  if(armLayers[gait]===half)return;
-  armLayers[gait]=half;
+ // Anatomical depth is fixed: swinging a limb does not change which side
+ // of the body it belongs to. Mirroring the whole character preserves this.
+ for(const gait of ['walk','run']){
   const body=$('.'+gait+'-body'),head=$('.'+gait+'-head'),parent=body.parentNode;
-  const first=$('.'+gait+'-front-arm'),second=$('.'+gait+(gait==='run'?'-back-arm':'-rear-arm'));
-  parent.insertBefore(half?first:second,parent.firstElementChild);
-  parent.appendChild(half?second:first);
+  // In the walking reference the near sleeve starts behind the hip;
+  // in the running reference the near arm starts bent in front of the chest.
+  const near=$('.'+gait+(gait==='walk'?'-rear-arm':'-front-arm'));
+  const far=$('.'+gait+(gait==='walk'?'-front-arm':'-back-arm'));
+  parent.insertBefore(far,parent.firstElementChild);
+  parent.appendChild(near);
   parent.appendChild(head);
  }
  function tick(now){
@@ -87,7 +87,6 @@
    const exchange=(1-Math.cos(distance/38*Math.PI*2))/2;
    const poses=[[48*exchange,245,280],[-48*exchange,230,280]];
    PhotoGaits.update('walk',distance/38*Math.PI*2);
-   layerArms('walk',exchange);
    walkParts.forEach((part,i)=>part.setAttribute('transform',`rotate(${poses[i].join(' ')})`));
   }
   // One full stride per 46 pixels. Opposite arms follow opposite legs.
@@ -96,7 +95,6 @@
    const exchange=(1-Math.cos(distance/46*Math.PI*2))/2;
    const poses=[[-65*exchange,590,700],[90*exchange,650,740]];
    PhotoGaits.update('run',distance/46*Math.PI*2);
-   layerArms('run',exchange);
    runParts.forEach((part,i)=>part.setAttribute('transform',`rotate(${poses[i].join(' ')})`));
   }
   // The run photo faces left; the walk atlas faces right.
