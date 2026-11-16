@@ -14,17 +14,32 @@
  function hugStep(){
   if(!$('#hug').checked)return;
   hug.src=hugImages[hugIndex].src;
-  const delay=hugFrames[hugIndex].delay;
+  const delay=hugFrames[hugIndex].delay * ($("#quiet").checked ? 1.7 : 1);
   hugIndex=(hugIndex+1)%hugFrames.length;
   if(!reduced.matches)hugTimer=setTimeout(hugStep,delay);
  }
  function modeChanged(){
   reset();clearTimeout(hugTimer);hugIndex=0;
-  if($('#hug').checked){hugStep();caption.textContent='A little hug, just for you ♡';}
-  else caption.textContent=$('#celebrate').checked?'You did it! ✦':$('#stand').checked?'Keeping you company':'A little adventure';
+  const quiet=$('#quiet').checked;
+  document.body.classList.toggle('quiet-comfort',quiet);
+  const mode=document.querySelector('input[name="movement"]:checked').id;
+  const descriptions={
+   stand: quiet?'He stays nearby, quietly keeping you company.':'He stays nearby. Choose Walk or Run to see him move.',
+   walk: quiet?'He takes a slow, gentle walk.':'He wanders around the preview with little pauses.',
+   run: quiet?'He jogs at an easier pace, without rushing.':'He runs around the preview with quicker steps.',
+   celebrate: quiet?'A small, gentle celebration. Your little wins count.':'A happy bounce to celebrate your little wins!',
+   hug: quiet?'A slower hug. Take your time; there is no need to rush.':'An animated hug, just for you. You can always switch back to Stay.'
+  };
+  $('#response-title').textContent=({stand:'Stay',walk:'Walk',run:'Run',celebrate:'Celebrate',hug:'Hug'})[mode]+' · '+(quiet?'Quiet comfort':'Playful');
+  $('#response-description').textContent=descriptions[mode];
+  if($('#hug').checked)hugStep();
+  caption.textContent=descriptions[mode];
  }
  document.querySelectorAll('input[name="movement"]').forEach(el=>el.addEventListener('change',modeChanged));
+ $('#quiet').addEventListener('change',modeChanged);
+ document.querySelector('form').addEventListener('reset',()=>setTimeout(modeChanged,0));
  reduced.addEventListener('change',modeChanged);
+ modeChanged();
  function tick(now){
   const dt=Math.min((now-(last||now))/1000,.04);last=now;
   const maxX=Math.max(0,scene.clientWidth-orbit.clientWidth),maxY=Math.max(65,scene.clientHeight-orbit.clientHeight-55);
@@ -40,7 +55,7 @@
    if(len<2){
     target=null;speed=0;pauseUntil=now+700+Math.random()*700;
    }else{
-    speed=Math.min(speed+dt*180,run?95:42);moved=Math.min(len,speed*dt);x+=dx/len*moved;y+=dy/len*moved;
+    speed=Math.min(speed+dt*180,(run?95:42)*($('#quiet').checked?.55:1));moved=Math.min(len,speed*dt);x+=dx/len*moved;y+=dy/len*moved;
     if(Math.abs(dx)>.5)face=dx>0?1:-1;
     distance+=moved;
    }
@@ -49,7 +64,7 @@
   if(moving){const frame=Math.floor(distance/(run?7:8))%6;if(run){$('.runner').src=`run-${frame%2}.png`;}feet.style.backgroundPosition=`${frame%3*50}% ${Math.floor(frame/3)*100}%`;}
   // The run photo faces left; the walk atlas faces right.
   const facing=moving&&run?-face:face;
-  const bob=moving?Math.sin(distance*.19)*(run?2:1):celebrate?Math.sin(now*.006)*4:0;
+  const bob=moving?Math.sin(distance*.19)*(run?2:1):celebrate?Math.sin(now*.006)*($('#quiet').checked?1:4):0;
   const drawX=hugging?maxX/2:x, drawY=hugging?maxY:y+bob;
   orbit.style.transform=`translate(${drawX}px,${drawY}px) scaleX(${moving?facing:1})`;
   requestAnimationFrame(tick);

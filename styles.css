@@ -61,3 +61,18 @@ body:has(#hug:checked) .scene-note,body:has(#hug:checked) .fake-folder{visibilit
 
 /* A single complete download replaces the separate asset card. */
 .download-options{grid-template-columns:1fr}
+
+/* Readable instructions and visible feedback for combined inputs. */
+.intro p:last-child{font-size:16px;color:#526358}
+.settings-card header>p:last-child,.hint,.settings-note p{font-size:14px;color:#526358}
+legend{font-size:16px}.segmented label,.size-options label{font-size:15px;padding:11px 8px;color:#465a4a}
+.comfort-toggle{display:flex;align-items:center;gap:10px;font-size:16px;cursor:pointer;padding:12px;background:#f1f4eb;border-radius:9px}
+.comfort-toggle input{width:20px;height:20px;accent-color:var(--green)}
+.response-card{border-left:4px solid #668653;background:#f1f5e9;padding:14px;margin-bottom:16px;border-radius:4px 10px 10px 4px}
+.response-card strong{font-size:16px}.response-card p{font-size:14px;margin:6px 0 0;color:#435944}
+.reset-button{font:inherit;font-weight:650;border:1px solid #71836b;background:white;color:var(--green);border-radius:8px;width:100%;padding:11px;cursor:pointer}
+.reset-button:hover{background:#edf3e6}.scene-caption{font-size:14px;color:#344c36;background:#f8faf1e8;padding:7px 12px;left:12px;right:12px;border-radius:8px}
+body.quiet-comfort .desktop-scene{background:radial-gradient(ellipse at 35% 40%,#eef1e6,transparent 60%),linear-gradient(135deg,#e8eee6,#dce5dd)}
+.helper-details summary,.helper-details ol,.helper-copy>p:last-child{font-size:14px}
+.helper-details{width:260px}.preview-footer{font-size:12px}
+@media(max-width:650px){.card-header{padding:16px}.small-label{display:none}.scene-note p{font-size:15px}.intro p:last-child{font-size:16px}.settings-card{padding:20px}.helper-details,.helper-details[open]{width:100%}.scene-caption{font-size:13px}}

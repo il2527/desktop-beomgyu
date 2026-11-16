@@ -1,0 +1,11 @@
+Designing for Feeling — Desktop Beomgyu (work in progress)
+
+Interaction concept: I am refining Desktop Beomgyu, a companion interface that should feel playful and comforting. Visitors choose an action such as Walk, Run, Hug, or Celebrate, then combine it with a Quiet comfort checkbox. Run alone creates quick movement, while Run + Quiet comfort becomes a slower jog. Hug + Quiet comfort slows the animation, and Celebrate + Quiet comfort makes the bounce smaller.
+
+What I noticed: People told me the interface was hard to read and that they were unsure how to use it. I enlarged the labels, numbered the steps, added a response card explaining the selected combination, and included Reset to Stay. I want the emotion to come through movement, timing, and reassuring words, while the instructions stay clear.
+
+AI support: I used AI to help revise the HTML/CSS and connect the two inputs in JavaScript. I directed the changes around the feedback I received and checked that the combined Hug state and Reset worked. This helped me see that emotional interaction depends on understandable feedback as well as animation.
+
+Still figuring out: How can I make the difference between playful and quiet responses noticeable without making the interface distracting or overwhelming? I would like feedback on whether first-time visitors understand what to try.
+
+Work in progress: https://il2527.github.io/desktop-beomgyu/

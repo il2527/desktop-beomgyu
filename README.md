@@ -45,3 +45,7 @@ Original hug reference: https://media1.tenor.com/m/5-2hUKXUZUwAAAAd/beomgyu-hug-
 ## Opening on macOS
 
 This prototype is ad-hoc signed and has not been notarized by Apple. If macOS blocks it, only if you trust this project copy: click Done, open System Settings → Privacy & Security, find the blocked Beomgyu Desktop message, click Open Anyway, and confirm. Keep macOS security protections enabled. Apple instructions: https://support.apple.com/en-us/102445
+
+## Designing for feeling: in-progress interaction
+
+Choose an action using the radio buttons, then combine it with the independent Quiet comfort checkbox. Walk and Run slow down; Hug uses longer original-frame timings; Celebrate has a smaller bounce. The response card describes the combined state, and Reset returns to Stay with Quiet comfort off and the default size. These new combined inputs are in the website preview; the Mac download retains its existing controls.
