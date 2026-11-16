@@ -48,10 +48,9 @@
  // of the body it belongs to. Mirroring the whole character preserves this.
  for(const gait of ['walk','run']){
   const body=$('.'+gait+'-body'),head=$('.'+gait+'-head'),parent=body.parentNode;
-  // In the walking reference the near sleeve starts behind the hip;
-  // in the running reference the near arm starts bent in front of the chest.
-  const near=$('.'+gait+(gait==='walk'?'-rear-arm':'-front-arm'));
-  const far=$('.'+gait+(gait==='walk'?'-front-arm':'-back-arm'));
+  // Running depth is reversed as requested; walking keeps its existing order.
+  const near=$('.'+gait+(gait==='walk'?'-rear-arm':'-back-arm'));
+  const far=$('.'+gait+(gait==='walk'?'-front-arm':'-front-arm'));
   parent.insertBefore(far,parent.firstElementChild);
   parent.appendChild(near);
   parent.appendChild(head);
