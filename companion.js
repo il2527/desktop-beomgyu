@@ -94,7 +94,7 @@
   if(run&&moving){
    const exchange=(1-Math.cos(distance/46*Math.PI*2))/2;
    const poses=[[-65*exchange,590,700],[90*exchange,650,740]];
-   PhotoGaits.update('run',distance/46*Math.PI*2);
+   PhotoGaits.update('run',distance/46*Math.PI*2+Math.PI);
    runParts.forEach((part,i)=>part.setAttribute('transform',`rotate(${poses[i].join(' ')})`));
   }
   // The run photo faces left; the walk atlas faces right.
