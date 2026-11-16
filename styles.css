@@ -76,3 +76,17 @@ body.quiet-comfort .desktop-scene{background:radial-gradient(ellipse at 35% 40%,
 .helper-details summary,.helper-details ol,.helper-copy>p:last-child{font-size:14px}
 .helper-details{width:260px}.preview-footer{font-size:12px}
 @media(max-width:650px){.card-header{padding:16px}.small-label{display:none}.scene-note p{font-size:15px}.intro p:last-child{font-size:16px}.settings-card{padding:20px}.helper-details,.helper-details[open]{width:100%}.scene-caption{font-size:13px}}
+
+/* Articulated photo cutout: original head and torso, alternating limb pivots. */
+.run-rig{overflow:visible;width:190%;max-width:none;margin-left:-45%;height:100%;}
+body.motion-ready.running.is-moving .runner{display:block}
+body.motion-ready.running:has(#run:checked) .walking{display:none!important}
+body.motion-ready.running.is-moving:has(#run:checked) .still{display:none!important}
+.run-rig{position:absolute;top:0;left:-45%;margin-left:0}
+
+/* Keep both articulated gaits on one layer, never stacked in document flow. */
+.walk-rig{position:absolute;inset:0;width:100%;height:100%;overflow:visible;background:none!important}
+body.motion-ready:has(#walk:checked) .walking{background:none;animation:none}
+body.motion-ready:has(#walk:checked):not(.is-moving) .walking{display:none}
+.desktop-scene{height:510px}.studio-layout{align-items:start}
+@media(max-width:650px){.desktop-scene{height:420px}}

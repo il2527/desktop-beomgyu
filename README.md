@@ -49,3 +49,7 @@ This prototype is ad-hoc signed and has not been notarized by Apple. If macOS bl
 ## Designing for feeling: in-progress interaction
 
 Choose an action using the radio buttons, then combine it with the independent Quiet comfort checkbox. Walk and Run slow down; Hug uses longer original-frame timings; Celebrate has a smaller bounce. The response card describes the combined state, and Reset returns to Stay with Quiet comfort off and the default size. These new combined inputs are in the website preview; the Mac download retains its existing controls.
+
+## Walking and running motion
+
+The website now uses SVG clips of the existing photographs with separate arm and leg pivots. Opposite arms and legs alternate with distance traveled, while the original head pixels remain unchanged. Continuous random steering replaces target arrival pauses and fixed loops. Stay, Hug, Celebrate, and reduced-motion preferences still stop wandering. This update applies to the web preview; the downloadable native build is unchanged.
