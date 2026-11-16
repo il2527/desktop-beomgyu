@@ -3,8 +3,10 @@
  const $ = s => document.querySelector(s);
  const scene=$('.desktop-scene'), orbit=$('.orbit'), sprite=$('.sprite'), feet=$('.walking'), caption=$('.scene-caption');
  const hug=$('#hug-animation');
- const runParts=['front-leg','back-leg','front-arm','back-arm'].map(name=>$('.run-'+name));
- const walkParts=['front-leg','rear-leg','front-arm','rear-arm'].map(name=>$('.walk-'+name));
+ const runParts=['front-leg','back-leg'].map(name=>$('.run-'+name));
+ const walkParts=['front-leg','rear-leg'].map(name=>$('.walk-'+name));
+ PhotoGaits.init('walk',$('.walk-rig'));
+ PhotoGaits.init('run',$('.run-rig'));
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  let x=80,y=110,target=null,last=0,distance=0,speed=0,face=1,heading=.4,turn=0,turnAt=0;
  document.body.classList.add('motion-ready');
@@ -83,7 +85,8 @@
   const moving=moved>.01;document.body.classList.toggle('is-moving',moving);document.body.classList.toggle('running',run);
   if(moving&&!run){
    const exchange=(1-Math.cos(distance/38*Math.PI*2))/2;
-   const poses=[[48*exchange,245,280],[-48*exchange,230,280],[-30*(1-exchange),275,150],[30*(1-exchange),195,145]];
+   const poses=[[48*exchange,245,280],[-48*exchange,230,280]];
+   PhotoGaits.update('walk',distance/38*Math.PI*2);
    layerArms('walk',exchange);
    walkParts.forEach((part,i)=>part.setAttribute('transform',`rotate(${poses[i].join(' ')})`));
   }
@@ -91,7 +94,8 @@
   // These transforms move clipped original photo pixels, including an untouched head.
   if(run&&moving){
    const exchange=(1-Math.cos(distance/46*Math.PI*2))/2;
-   const poses=[[-65*exchange,590,700],[90*exchange,650,740],[-70*(1-exchange),420,330],[55*(1-exchange),790,330]];
+   const poses=[[-65*exchange,590,700],[90*exchange,650,740]];
+   PhotoGaits.update('run',distance/46*Math.PI*2);
    layerArms('run',exchange);
    runParts.forEach((part,i)=>part.setAttribute('transform',`rotate(${poses[i].join(' ')})`));
   }

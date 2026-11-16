@@ -53,3 +53,5 @@ Choose an action using the radio buttons, then combine it with the independent Q
 ## Walking and running motion
 
 The website now uses SVG clips of the existing photographs with separate arm and leg pivots. Opposite arms and legs alternate with distance traveled, while the original head pixels remain unchanged. Continuous random steering replaces target arrival pauses and fixed loops. Stay, Hug, Celebrate, and reduced-motion preferences still stop wandering. This update applies to the web preview; the downloadable native build is unchanged.
+
+The shoulder repair uses photo-textured triangular strips with shared vertices and a fixed attachment edge. Upper arms and forearms use separate joint transforms; torso clips exclude moving sleeves. The four quarter-stride poses were inspected for both gaits before publication.
