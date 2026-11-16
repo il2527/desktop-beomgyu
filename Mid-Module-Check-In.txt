@@ -1,11 +1,19 @@
-Designing for Feeling — Desktop Beomgyu (work in progress)
+Designing for Feeling with Desktop Beomgyu
 
-Interaction concept: I am refining Desktop Beomgyu, a companion interface that should feel playful and comforting. Visitors choose an action such as Walk, Run, Hug, or Celebrate, then combine it with a Quiet comfort checkbox. Run alone creates quick movement, while Run + Quiet comfort becomes a slower jog. Hug + Quiet comfort slows the animation, and Celebrate + Quiet comfort makes the bounce smaller.
+Interaction Concept
+I am developing Desktop Beomgyu, a small companion that should feel playful and comforting. The website combines three inputs: action radio buttons, a Movement speed slider from 50% to 180%, and a Quiet comfort checkbox. Selecting Run at a high speed creates an energetic response. Turning on Quiet comfort slows that chosen pace further. The checkbox also slows Hug and reduces the celebration bounce; the speed slider applies only to walking and running.
 
-What I noticed: People told me the interface was hard to read and that they were unsure how to use it. I enlarged the labels, numbered the steps, added a response card explaining the selected combination, and included Reset to Stay. I want the emotion to come through movement, timing, and reassuring words, while the instructions stay clear.
+What It Represents
+I want users to choose the kind of company they want. Movement, timing, and reassuring words communicate energy or calm, rather than relying only on color. The system responds to the combination of choices rather than treating every input as a separate effect.
 
-AI support: I used AI to help revise the HTML/CSS and connect the two inputs in JavaScript. I directed the changes around the feedback I received and checked that the combined Hug state and Reset worked. This helped me see that emotional interaction depends on understandable feedback as well as animation.
+UI Decisions
+Radio buttons allow one action at a time. The slider lets visitors adjust pace continuously, while its percentage provides immediate feedback. Quiet comfort is a checkbox because it can combine with any action. Reset to Stay restores the initial action, size, comfort setting, and 100% speed. After feedback about readability, I enlarged labels, numbered the controls, and added a response card. I also reduced empty space and kept the preview visible alongside the controls while scrolling on desktop.
 
-Still figuring out: How can I make the difference between playful and quiet responses noticeable without making the interface distracting or overwhelming? I would like feedback on whether first-time visitors understand what to try.
+AI Support and Experimentation
+I used AI to help write HTML, CSS, and JavaScript and to debug the interactions. I supplied the concept, media, and feedback. Early animations had disconnected joints, incorrect arm layers, and same-side arm and leg movement. I challenged those results and requested connected joints, specific arm layering, and opposite arm-leg timing. These revisions showed me that technically working animation can still communicate an unnatural movement.
+
+Still Figuring Out
+How much should movement change before users recognize a different feeling? I would like classmates to compare Run at 150% with Quiet comfort off and on, then tell me whether the difference feels energetic or calming. This is still a prototype, and I am continuing to refine the photo animation.
 
 Work in progress: https://il2527.github.io/desktop-beomgyu/
+Source: https://github.com/il2527/desktop-beomgyu

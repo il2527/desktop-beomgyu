@@ -3,9 +3,9 @@ Desktop Idol: Desktop Beomgyu
 Submitted by: Desktop Idol — Individual project
 
 PROJECT LINKS
-Website: https://little-companion-studio.cheerylarch3.chatgpt.site/
-HTML/CSS/JavaScript source: https://little-companion-studio.cheerylarch3.chatgpt.site/source.zip
-Complete Mac app download: https://little-companion-studio.cheerylarch3.chatgpt.site/downloads/Desktop-Beomgyu.zip
+Website: https://il2527.github.io/desktop-beomgyu/
+HTML/CSS/JavaScript source: https://github.com/il2527/desktop-beomgyu/archive/refs/heads/main.zip
+Complete Mac app download: https://il2527.github.io/desktop-beomgyu/Desktop-Beomgyu.zip
 
 1. IDEA AND DESIGN INTENTIONS
 
@@ -21,12 +21,12 @@ The page is organized into these areas:
 • Header: project identity, navigation, and a Download link.
 • Introduction: the project title and a short explanation.
 • Character preview: a desktop-like space showing the selected character mode.
-• Settings: Stay, Walk, Run, Celebrate, and Hug, followed by Tiny, Small, and Large size choices.
+• Settings: action radio buttons, Quiet comfort checkbox, Movement speed slider (50%–180%), and Tiny, Small, and Large size choices.
 • Trash-helper explanation: a storyboard explaining confirmation, delivery, celebration, and Undo.
 • Download section: one button for the complete app, character assets, and a quick-start guide.
 • Footer: a link to the source code and design-process page.
 
-The intended flow is to understand the idea, try a mode, choose a size, and download the companion. Hug plays directly in the preview rather than opening a separate pop-up. Its message is: “Feel upset? Feel tired? Do not worry I will always be on your side”.
+The intended flow is to understand the idea, try an action, adjust the pace and comfort setting, choose a size, and download the companion. Hug plays directly in the preview rather than opening a separate pop-up. Its message is: “Feel upset? Feel tired? Do not worry I will always be on your side”.
 
 I simplified the interface through revision. I removed the random file-icon play feature because I no longer wanted it. I also asked for one combined download instead of separate app and asset buttons, so visitors would not have to guess which files they needed.
 
@@ -60,13 +60,23 @@ This version goes beyond the minimum assignment by adding JavaScript for movemen
 
 5. INTERACTIVE ELEMENTS AND TESTING
 
-Movement choices are real radio inputs. Choosing one mode replaces the previous mode. Size controls scale the preview. Hug uses the original transparent frames and timing. Movement and step frames share a timing loop so his legs pause when he stops travelling.
+Action choices are real radio inputs. Choosing one replaces the previous action. The speed slider changes walking and running pace from 50% to 180% through an input event listener, and an output element displays the value immediately. Quiet comfort combines with any action: it multiplies movement speed by 0.55, slows the hug, and reduces celebration bounce. The speed slider does not change Hug, Stay, or Celebrate. Reset to Stay restores the initial controls, including 100% speed. Size choices scale the preview. The hug preserves all 20 original transparent frames. Walking and running use continuously changing directions and opposite arm-leg timing. The newest animation and combined-input controls are website features; the Mac download retains its earlier native controls.
 
 The Trash helper on the website is an interaction storyboard. Its intended behavior is: select or drop a file, confirm moving it to Trash, watch him run and celebrate, and use Undo if needed. Actual file handling belongs to the native app, not this browser page.
 
 With AI assistance, the page was checked in a browser at a narrow viewport, mode changes were tested, local links were checked, and the download archives were inspected. The Mac app package was checked to confirm that its executable and all 20 hug frames were included. The downloadable build is for Apple silicon Macs running macOS 26 or later; it is a local prototype and is not notarized.
 
-6. WHAT I LEARNED
+6. DESIGNING FOR FEELING UPDATE
+
+The three inputs combine to determine the response. For walking and running, effective speed equals the action’s base speed multiplied by the slider percentage and the Quiet comfort factor. For example, Run at 150% uses 165 pixels per second, while the same choice with Quiet comfort uses 90.75 pixels per second. Reduced-motion preferences stop wandering. The response card describes the selected action and comfort state, and the slider separately displays the chosen percentage.
+
+Feedback about readability led me to use larger instructions and numbered control groups. A taller controls column initially left a large blank area below the preview. The revised CSS tightens the spacing, keeps the preview beside the controls while scrolling on desktop, and stacks the layout at tablet and mobile widths.
+
+AI-assisted animation attempts still needed my review. I identified disconnected shoulder and elbow seams, incorrect arm depth, and same-side arm-leg movement. The website now uses shared-edge photo meshes for the arms, fixed depth layers, and a half-stride arm offset. These remain experimental photo animations, not recorded video.
+
+The speed slider was checked at 50% and 180%, combined with Quiet comfort, and reset to 100%. The desktop layout was checked while scrolling. This does not establish that every device or animation frame is flawless.
+
+7. WHAT I LEARNED
 
 I learned that HTML structures the page, while CSS controls its layout and style. In this project, HTML sections organize the preview, settings, and download area. CSS Grid places the preview beside the settings on a wide screen, and a media query stacks them on a smaller screen. This helped me understand why the same content can have different layouts without changing its HTML structure.
 

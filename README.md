@@ -4,13 +4,14 @@ A fan-made photo-based desktop companion and an HTML/CSS interface study.
 
 - **Website:** https://il2527.github.io/desktop-beomgyu/
 - **Complete Mac download:** https://github.com/il2527/desktop-beomgyu/raw/refs/heads/main/Desktop-Beomgyu.zip
-- **Existing public preview:** https://little-companion-studio.cheerylarch3.chatgpt.site/
+- **Earlier preview (does not include the latest website updates):** https://little-companion-studio.cheerylarch3.chatgpt.site/
 
 ## Assignment document
 
-- [Google Doc submission](https://docs.google.com/document/d/13zM873IIdiwIZpgM0oOi5QJCpAN7KU4IgHLpf5234_Q/edit)
+- [Earlier Google Doc submission — latest updates are in the copies below](https://docs.google.com/document/d/13zM873IIdiwIZpgM0oOi5QJCpAN7KU4IgHLpf5234_Q/edit)
 - [Readable document copy](Assignment.html)
 - [Plain text document copy](Assignment.txt)
+- [Current mid-module check-in](Mid-Module-Check-In.txt)
 
 ## Use the desktop character
 
@@ -22,7 +23,8 @@ The downloadable prototype requires an Apple silicon Mac and macOS 26 or later. 
 
 - `index.html`: semantic interface, preview, controls, and single download button.
 - `styles.css`: CSS Grid, Flexbox, responsive layouts, colors, typography, and motion preferences.
-- `companion.js`: movement, step timing, mode changes, and animated hug playback.
+- `companion.js`: continuous wandering, opposite arm-leg timing, mode changes, combined speed inputs, and animated hug playback.
+- `photo-gaits.js`: photo-textured arm meshes with connected joints.
 - `process.html`: design decisions, AI collaboration, and iteration history.
 - PNG files and `frames.json`: photo assets and original hug-frame timing.
 
@@ -48,7 +50,7 @@ This prototype is ad-hoc signed and has not been notarized by Apple. If macOS bl
 
 ## Designing for feeling: in-progress interaction
 
-Choose an action using the radio buttons, then combine it with the independent Quiet comfort checkbox. Walk and Run slow down; Hug uses longer original-frame timings; Celebrate has a smaller bounce. The response card describes the combined state, and Reset returns to Stay with Quiet comfort off and the default size. These new combined inputs are in the website preview; the Mac download retains its existing controls.
+Choose an action using the radio buttons, set Movement speed from 50% to 180%, then combine it with the independent Quiet comfort checkbox. Walk and Run slow down; Hug uses longer original-frame timings; Celebrate has a smaller bounce. The response card describes the combined state, and Reset returns to Stay with Quiet comfort off and the default size. These new combined inputs are in the website preview; the Mac download retains its existing controls.
 
 ## Walking and running motion
 
@@ -56,6 +58,6 @@ The website now uses SVG clips of the existing photographs with separate arm and
 
 The shoulder repair uses photo-textured triangular strips with shared vertices and a fixed attachment edge. Upper arms and forearms use separate joint transforms; torso clips exclude moving sleeves. The four quarter-stride poses were inspected for both gaits before publication.
 
-Arm depth follows anatomy: the far arm stays behind the torso throughout the stride, while the near arm stays in front. Swinging or turning does not exchange these layers.
+Arm depth stays fixed throughout the stride, using the running depth order approved during review. Swinging or turning does not exchange the layers.
 
 The Movement speed range slider adds a continuous input (50–180%). Its input event updates the visible percentage and walking/running speed immediately. Movement mode sets the base speed, the slider scales it, and Quiet comfort multiplies it by 0.55. Reset returns the slider to 100%.
