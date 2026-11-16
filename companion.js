@@ -85,7 +85,8 @@
   if(moving&&!run){
    const exchange=(1-Math.cos(distance/38*Math.PI*2))/2;
    const poses=[[48*exchange,245,280],[-48*exchange,230,280]];
-   PhotoGaits.update('walk',distance/38*Math.PI*2);
+   // Opposite arm and leg advance together: arms are half a stride ahead.
+   PhotoGaits.update('walk',distance/38*Math.PI*2+Math.PI);
    walkParts.forEach((part,i)=>part.setAttribute('transform',`rotate(${poses[i].join(' ')})`));
   }
   // One full stride per 46 pixels. Opposite arms follow opposite legs.
